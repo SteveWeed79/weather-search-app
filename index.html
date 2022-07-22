@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weather Search</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!--Header with the site name.  Using fluid to fill the screen-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 heroText">My Weather Search App</h1>
+            <p class="lead">For all your weather needs!</p>
+        </div>
+    </div>
+    <!--Creating the form for the city or zip code to be entered into.-->
+
+
+
+    <div class="row">
+        <!--Keeping the form and the button on in the same div for .sibling use.-->
+        <div class="col-12 col-lg-3 mx-5">
+            <input class="form-control" type="text" placeholder="City Name or Zip Code">
+            <button type="button" class="btn btn-primary btn-lg btn-block mt-2">Search</button>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle btn-block mt-2" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Recent Searches
+                </button>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+        </div>
+
+        <!--This is the current weather informaion.-->
+        <div class="card col-12 col-lg-7">
+            <div class="card-header">
+                <span>City Name Goes Here with Date</span>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Temp</li>
+                    <li>Wind Speed</li>
+                    <li>Humidity</li>
+                    <li>UV index with Icon</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--Cards for the weather for the 5 day forecast-->
+    <div class="row">
+        <div class="card-deck m-5">
+            <div class="card col-lg-3 col-md-12">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Day 1</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+
+            <div class="card col-lg-3 col-md-12">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Day 2</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card col-sm-3 col-md-12">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Day 3</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This card has even longer content than the first to show that equal height
+                        action.</p>
+                </div>
+            </div>
+
+            <div class="card col-lg-3 col-md-12">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Day 4</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This card has even longer content than the first to show that equal height
+                        action.</p>
+                </div>
+            </div>
+
+            <div class="card col-lg-3 col-md-12">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Day 5</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This card has even longer content than the first to show that equal height
+                        action.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+<script src="./assets/javascript/script.js"></script>
+
+</html>
