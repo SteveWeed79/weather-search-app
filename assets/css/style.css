@@ -6,4 +6,6 @@
     font-size: 400%;
 }
 
-;
+ul {
+    list-style: none;
+}
