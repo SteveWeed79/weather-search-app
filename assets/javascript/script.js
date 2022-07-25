@@ -13,7 +13,7 @@ var currentHumid = ('');
 var currentUV = ('');
 var cityNameEL;
 var currentCloudIcon;
-var createButton = document.createElement('button')
+
 
 var today = moment().format('l');
 
@@ -59,7 +59,8 @@ $(document).ready(function () {
         cityName = value
         getCityLocation(cityName)
         cityStorageEl = value
-        localStorage.setItem(city, value);
+        localStorage.setItem(location, value);
+        var createButton = document.createElement('button')
         createButton.innerHTML = value;
         document.getElementById('listGroup').appendChild(createButton);
 
