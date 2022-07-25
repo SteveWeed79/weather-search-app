@@ -2,10 +2,27 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background-color: #7DEBD7;
+}
+
 .heroText {
     font-size: 400%;
 }
 
 ul {
     list-style: none;
+}
+
+.jumbotron {
+    background-color: #449E8E;
+    color: white;
+}
+
+.card-body {
+    background-color: #6AEB94;
+}
+
+.btn {
+    background-color: #5ED184;
 }
