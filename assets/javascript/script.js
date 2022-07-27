@@ -137,7 +137,7 @@ function printData() {
     document.getElementById('currTemp').innerHTML = "Temperature: " + currentTemp + "° F";
     document.getElementById('currWind').innerHTML = "Wind Speed: " + currentWind + " mph";
     document.getElementById('currHumidity').innerHTML = "Humidity: " + currentHumid + "%";
-    document.getElementById('currUV').innerHTML = "UV index: " + currentUV;
+    document.getElementById('currUV').innerHTML = "  UV index: " + currentUV + "  ";
     document.getElementById("currentIcon").src = "http://openweathermap.org/img/wn/" + currentCloudIcon + "@2x.png";
 
 
@@ -190,11 +190,14 @@ function printData() {
     document.getElementById('day5Date').innerHTML = printDay5Date;
 
     if (currentUV <= 3) {
-        document.getElementById('currUV').style.color = 'green';
+        document.getElementById('currUV').style.color = 'white';
+        document.getElementById('currUV').style.backgroundColor = 'green';
     } else if (currentUV >= 8) {
-        document.getElementById('currUV').style.color = 'red';
+        document.getElementById('currUV').style.color = 'white';
+        document.getElementById('currUV').style.backgroundColor = 'red';
     } else {
-        document.getElementById('currUV').style.color = 'yellow';
+        document.getElementById('currUV').style.color = 'white';
+        document.getElementById('currUV').style.backgroundColor = 'yellow';
     }
 
 
