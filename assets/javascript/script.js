@@ -47,7 +47,7 @@ var dayThreeHum;
 var dayFourHum;
 var dayFiveHum;
 
-
+//Creates the button based on the input form input
 function createButton() {
 for (let i = 0; i < cityStorage.length; i++) {
     const city = cityStorage[i];
@@ -59,10 +59,9 @@ for (let i = 0; i < cityStorage.length; i++) {
 
 
 
+
 $(document).ready(function () {
-
-
-
+//button click event to grab the user input and start the data collection process
     $("button").on("click", function () {
         var value = $(this)
             .siblings('.form-control')
@@ -81,10 +80,10 @@ $(document).ready(function () {
     createButton()
 });
 
-
+//Pulls the data from the button list created from local storage
 $("#listGroup").on("click", "button", getCityLocation)
 
-
+//Pulls the lat and long based on a city name entered into the input
 function getCityLocation() {
     if($(this).parent().attr("id") === "listGroup") {
         cityName=$(this).text()
@@ -102,6 +101,7 @@ function getCityLocation() {
 }
 
 
+//Pulls the weather API and information for the current weather and 5 day forcast
 function getWeather() {
 
     fetch('https://api.openweathermap.org/data/2.5/onecall?appid=' + apiKey + '&lat=' + latEl + '&lon=' + longEl + '&exclude=hourly,minutely&units=imperial')
@@ -147,6 +147,8 @@ function getWeather() {
 
 }
 
+
+// This prints all the pulled data to the screen for the user to read.
 function printData() {
     console.log(currentTemp)
     document.getElementById('currTemp').innerHTML = "Temperature: " + currentTemp + "° F";
@@ -188,7 +190,7 @@ function printData() {
 
 
 
-
+    //Adds the date to the 5 day forecast cards.
     var printDay1Date = moment(today, "dd/mm/yyyy").add(1, "days").format("MM/DD/YYYY")
     document.getElementById('day1Date').innerHTML = printDay1Date;
 

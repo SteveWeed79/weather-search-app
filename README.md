@@ -2,27 +2,24 @@
 
 ## Description
 
-The app provides current weather and a 5 day forecast for user based on a city input. 
+The app provides current weather and a 5 day forecast for user based on a city input.
 
-- I was enjoyed this build because of the API and discovering the power of using them.  
-- This is a quick simple way to check your local weather.  No ads no popups just weather.
-
+- I was enjoyed this build because of the API and discovering the power of using them.
+- This is a quick simple way to check your local weather. No ads no popups just weather.
 
 ## Installation
 
 No installation require simply go to the follow url.
 https://steveweed79.github.io/weather-search-app/
 
-
 ## Usage
 
-Usage is easy.  Just go to the site, input a city name and hit the sumbit button.  Weather information will populate quickly.
+Usage is easy. Just go to the site, input a city name and hit the sumbit button. Weather information will populate quickly.
 
-![alt text](assets/screenshot.JPG)
-
-
+![alt text](assets/images/screenshot.JPG)
 
 ## License
+
 MIT License
 
 Copyright (c) [2022] [Steve Weed]
@@ -44,4 +41,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
