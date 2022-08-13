@@ -13,39 +13,10 @@ var currentHumid;
 var currentUV;
 var cityNameEL;
 var currentCloudIcon;
-
-
 var today = moment().format('l');
+let cardInfo;
+var cardDeck = document.getElementById('cardDeck')
 
-var dayOneDate;
-var dayTwoDate;
-var dayThreeDate;
-var dayFourDate;
-var dayFiveDate;
-
-var dayOneIcon;
-var dayTwoIcon;
-var dayThreeIcon;
-var dayFourIcon;
-var dayFiveIcon;
-
-var dayOneTemp;
-var dayTwoTemp;
-var dayThreeTemp;
-var dayFourTemp;
-var dayFiveTemp;
-
-var dayOneWind;
-var dayTwoWind;
-var dayThreeWind;
-var dayFourWind;
-var dayFiveWind;
-
-var dayOneHum;
-var dayTwoHum;
-var dayThreeHum;
-var dayFourHum;
-var dayFiveHum;
 
 //Creates the button based on the input form input
 function createButton() {
@@ -59,14 +30,12 @@ function createButton() {
 
 
 
-
 $(document).ready(function () {
     //button click event to grab the user input and start the data collection process
     $("button").on("click", function () {
         var value = $(this)
             .siblings('.form-control')
             .val()
-
 
         cityName = value
         getCityLocation(cityName)
@@ -108,89 +77,57 @@ async function getWeather() {
     const body = await response.json();
     currentWeather = body;
     console.log(currentWeather)
-    body.daily.map(async (body) => {
+    cardDeck.innerHTML = ""
 
-
-        let cardInfo = (`
-        
+    for (let i = 1; i <= 5; i++) {
+        //builds the 5 day forcast.  Need to look into this being user defined.
+        cardInfo = (
+            `
+                <div class="card col-sm-3 col-md-12">
             <div class="card-body">
-                <h5 class="card-title" id="day1Date">Day 1</h5>
-                <img src="${currentWeather.daily[0].weather[0].icon}" id="day1Icon" alt="">
+                <h5 class="card-title" id="day1Date">${moment.unix(currentWeather.daily[i].dt).format("M/D/YY")}</h5>
+                <img src="http://openweathermap.org/img/wn/${currentWeather.daily[i].weather[0].icon}@2x.png" id="day1Icon" alt="">
                 <br>
-                <span>Temperature: ${currentWeather.daily[0].temp.day}</span>
+                <span>Temperature: ${currentWeather.daily[i].temp.day}</span>
                 <br>
-                <span>Wind Speed: ${currentWeather.daily[0].wind_speed}</span>
+                <span>Wind Speed: ${currentWeather.daily[i].wind_speed}</span>
                 <br>
-                <span>Humidity: ${currentWeather.daily[0].humidity}</span>
+                <span>Humidity: ${currentWeather.daily[i].humidity}</span>
                 <br>
+            </div> 
             </div>
-        
+                    `
 
-        `);
+        );
 
-        document.getElementById('cardDeck').innerHTML = cardInfo;
-
-        console.log(body)
-
-        currentTemp = currentWeather.current.temp
-        console.log(currentTemp)
-        currentWind = currentWeather.current.wind_speed
-        currentHumid = currentWeather.current.humidity
-        currentUV = currentWeather.current.uvi
-        currentCloudIcon = currentWeather.current.weather[0].icon
+        console.log(i);
+        cardDeck.innerHTML += cardInfo
+    };
 
 
+    //Sets information to build the current weather card.
+    currentTemp = currentWeather.current.temp
+    currentWind = currentWeather.current.wind_speed
+    currentHumid = currentWeather.current.humidity
+    currentUV = currentWeather.current.uvi
+    currentCloudIcon = currentWeather.current.weather[0].icon
+
+    printData()
 
 
-        printData()
-
-
-    })
+    // })
 
 
 };
 
-
 // This prints all the pulled data to the screen for the user to read.
 function printData() {
-    console.log(currentTemp)
     document.getElementById('currTemp').innerHTML = "Temperature: " + currentTemp + "° F";
     document.getElementById('currWind').innerHTML = "Wind Speed: " + currentWind + " mph";
     document.getElementById('currHumidity').innerHTML = "Humidity: " + currentHumid + "%";
     document.getElementById('currUV').innerHTML = "  UV index: " + currentUV + "  ";
     document.getElementById("currentIcon").src = "http://openweathermap.org/img/wn/" + currentCloudIcon + "@2x.png";
 
-
-
-
-    // document.getElementById("day1Icon").src = "http://openweathermap.org/img/wn/" + dayOneIcon + "@2x.png";
-    // document.getElementById('day1Temp').innerHTML = 'Temperature: ' + dayOneTemp + "° F";
-    // document.getElementById('day1Wind').innerHTML = 'Wind Speed ' + dayOneWind + ' mph';
-    // document.getElementById('day1Hum').innerHTML = 'Humidity: ' + dayOneHum + '%';
-
-
-    // document.getElementById("day2Icon").src = "http://openweathermap.org/img/wn/" + dayTwoIcon + "@2x.png";
-    // document.getElementById('day2Temp').innerHTML = 'Temperature: ' + dayTwoTemp + "° F";
-    // document.getElementById('day2Wind').innerHTML = 'Wind Speed ' + dayTwoWind + ' mph';
-    // document.getElementById('day2Hum').innerHTML = 'Humidity: ' + dayTwoHum + '%';
-
-
-    // document.getElementById("day3Icon").src = "http://openweathermap.org/img/wn/" + dayThreeIcon + "@2x.png";
-    // document.getElementById('day3Temp').innerHTML = 'Temperature: ' + dayThreeTemp + "° F";
-    // document.getElementById('day3Wind').innerHTML = 'Wind Speed ' + dayThreeWind + ' mph';
-    // document.getElementById('day3Hum').innerHTML = 'Humidity: ' + dayThreeHum + '%';
-
-
-    // document.getElementById("day4Icon").src = "http://openweathermap.org/img/wn/" + dayFourIcon + "@2x.png";
-    // document.getElementById('day4Temp').innerHTML = 'Temperature: ' + dayFourTemp + "° F";
-    // document.getElementById('day4Wind').innerHTML = 'Wind Speed ' + dayFourWind + ' mph';
-    // document.getElementById('day4Hum').innerHTML = 'Humidity: ' + dayFourHum + '%';
-
-
-    // document.getElementById("day5Icon").src = "http://openweathermap.org/img/wn/" + dayFiveIcon + "@2x.png";
-    // document.getElementById('day5Temp').innerHTML = 'Temperature: ' + dayFiveTemp + "° F";
-    // document.getElementById('day5Wind').innerHTML = 'Wind Speed ' + dayFiveWind + ' mph';
-    // document.getElementById('day5Hum').innerHTML = 'Humidity: ' + dayFiveHum + '%';
 
 
 
@@ -202,7 +139,7 @@ function printData() {
         document.getElementById('currUV').style.color = 'white';
         document.getElementById('currUV').style.backgroundColor = 'red';
     } else {
-        document.getElementById('currUV').style.color = 'white';
+        document.getElementById('currUV').style.color = 'black';
         document.getElementById('currUV').style.backgroundColor = 'yellow';
     }
 
