@@ -14,8 +14,25 @@ ul {
 .jumbotron {
     background-color: #449E8E;
     color: white;
+    box-shadow: 10px 10px 6px 0px rgba(46, 107, 96, 1);
+
 }
 
 .btn {
     background-color: #5ED184;
+    box-shadow: 10px 10px 6px 0px rgba(46, 107, 96, 1);
+
+}
+
+button {
+    border-radius: 5px;
+    background-color: #ABEBDF;
+    margin-top: 5px;
+    box-shadow: 10px 10px 6px 0px rgba(46, 107, 96, 1);
+
+}
+
+.cardBoarder {
+    box-shadow: 10px 10px 6px 0px rgba(46, 107, 96, 1);
+
 }
